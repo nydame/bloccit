@@ -24,6 +24,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :development, :test do
+    gem 'rspec-rails', '~> 3.0'
+    gem 'rails-controller-testing'
+end
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
