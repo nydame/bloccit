@@ -1,0 +1,31 @@
+<h1>Create a New Ad</h1>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Guidelines for content creators:</h2>
+        <ol>
+            <li>Keep it short</li>
+            <li>Avoid the passive voice</li>
+            <li>Use colloquial language, but don't be offensive</li>
+        </ol>
+    </div>
+    <div class="col-md-8">
+        <%= form_for @advertisement do |f| %>
+        <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: "form-control", placeholder: "Enter post title" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :copy %>
+            <%= f.text_area :copy, rows: 8, class: "form-control", placeholder: "Enter ad copy" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :price %>
+            <%= f.text_field :price, class: "form-control", placeholder: "Enter ad price (whole number only)" %>
+        </div>
+        <div class="form-group">
+            <%= f.submit "Save", class: "btn btn-success" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
