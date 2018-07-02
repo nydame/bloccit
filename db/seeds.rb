@@ -18,6 +18,16 @@ posts = Post.all
     )
 end
 
+# Create Questions
+20.times do
+    random_question = RandomData.random_sentence.split(".").join("")
+    Question.create!(
+        title: random_question + '?',
+        body: RandomData.random_paragraph
+    )
+end
+
 puts "Seeding finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Question.count} questions created"
