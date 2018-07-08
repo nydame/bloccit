@@ -1,0 +1,13 @@
+// Place all the styles related to the SponsoredPosts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.sponsored {
+    background-color: silver;
+    border-radius: 50% 5%;
+    font-size: 50%;
+    font-style: italic;
+    font-weight: 200;
+    padding: 0.5em;
+    position: relative;
+    top: -2rem;
+}
