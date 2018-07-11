@@ -16,7 +16,14 @@
               <li><%= link_to "Bloccit", root_path %></li>
               <li><%= link_to "Topics", topics_path %></li>
               <li><%= link_to "About", about_path %></li>
-              <li class="pull-right"><%= link_to "Sign up", new_user_path %></li>
+              <% if current_user %>
+              <li class="pull-right">
+                  <%= link_to "#{current_user.name} - Sign out", session_path(current_user), method: :delete %>
+              </li>
+              <% else %>
+                  <li class="pull-right"><%= link_to "Sign up", new_user_path %></li>
+                  <li class="pull-right"><%= link_to "Sign in", new_session_path %></li>
+              <% end %>
           </ul>
 
 <% if flash[:notice] %>
