@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+
+    before_action :require_sign_in, except: :show
   # def index
   #     @posts = Post.all
   # end
@@ -19,6 +21,8 @@ class PostsController < ApplicationController
 
       @topic = Topic.find(params[:topic_id])
       @post.topic = @topic
+
+      @post.user = current_user
 
       if @post.save
           flash[:notice] = "Post was saved."

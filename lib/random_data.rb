@@ -22,5 +22,15 @@ module RandomData
         letters.shuffle!
         letters[0, rand(3..8)].join
     end
+    # Capitalize 2 random words to create a name
+    def self.random_name
+        first_name = random_word.capitalize
+        last_name = random_word.capitalize
+        "#{first_name} #{last_name}"
+    end
+    # Use random words to spoof an email address
+    def self.random_email
+        "#{random_word}@#{random_word}.#{random_word}"
+    end
 
 end
