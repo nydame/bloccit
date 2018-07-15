@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     before_save {self.email = email.downcase if email.present?}
+    before_save {self.role ||= :member}
 
     has_many :posts, dependent: :destroy
 
@@ -9,4 +10,6 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 3, maximum: 254}
 
     has_secure_password
+
+    enum role: [:admin, :member]
 end

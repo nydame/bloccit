@@ -1,6 +1,6 @@
 require 'random_data'
 
-# Create Users
+# Create Users ()
 5.times do
     User.create!(
         name: RandomData.random_name,
@@ -8,9 +8,23 @@ require 'random_data'
         password: RandomData.random_sentence
     )
 end
-User.first.update_attributes(email: "fmbetancourt@gmail.com", password: "justme")
-users = User.all
 
+# Create another member, except with know credentials
+member1 = User.create!(
+    name: "Member One",
+    email: "member@bloc.io",
+    password: "memberone"
+)
+
+# Create an admin user with known credentials
+admin1 = User.create!(
+    name: "Admin One",
+    email: "admin@bloc.io",
+    password: "adminone",
+    role: "admin"
+)
+
+users = User.all
 # Create Topics
 15.times do
     Topic.create!(
