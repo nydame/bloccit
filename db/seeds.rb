@@ -24,6 +24,14 @@ admin1 = User.create!(
     role: "admin"
 )
 
+#Create a moderator with known credentials
+moderator1 = User.create!(
+    name: "Moderator One",
+    email: "moderator@bloc.io",
+    password: "modone",
+    role: "moderator"
+)
+
 users = User.all
 # Create Topics
 15.times do
