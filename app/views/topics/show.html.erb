@@ -9,7 +9,8 @@
     <div class="col-md-8">
         <p class="lead"><%= @topic.description %></p>
         <h2>Posts in this topic</h2>
-        <% @topic.posts.each do |post| %>
+        <%= render @topic.posts %>
+        <!-- <% @topic.posts.each do |post| %>
             <div class="media">
                 <div class="media-body">
                     <h4 class="media-heading">
@@ -21,7 +22,7 @@
                     </small>
                 </div>
             </div>
-        <% end %>
+        <% end %> -->
     </div>
     <div class="col-md-4">
         <% if current_user %>
