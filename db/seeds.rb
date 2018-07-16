@@ -37,12 +37,13 @@ topics = Topic.all
 
 # Create Posts
 50.times do
-    Post.create!(
+    post = Post.create!(
         user: users.sample,
         topic: topics.sample,
         title: RandomData.random_sentence,
         body: RandomData.random_paragraph
     )
+    post.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
 end
 
 posts = Post.all
@@ -56,8 +57,18 @@ posts = Post.all
     )
 end
 
+# Create Votes
+150.times do
+    Vote.create!(
+        value: RandomData.flip_a_coin,
+        post: posts.sample,
+        user: users.sample
+    )
+end
+
 puts "Seeding finished"
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Vote.count} votes created"

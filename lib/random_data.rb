@@ -32,5 +32,10 @@ module RandomData
     def self.random_email
         "#{random_word}@#{random_word}.#{random_word}"
     end
+    # Randomly return 1 or -1
+    # a simpler method is **[1,-1].sample** used in Bloc checkpoint
+    def self.flip_a_coin
+        (2 * rand(0..1)) - 1
+    end
 
 end
