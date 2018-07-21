@@ -69,6 +69,25 @@ RSpec.describe Post, type: :model do
             expect(post.rank).to eq (old_rank - 1)
           end
         end
+
+        describe "#create_vote callback" do
+          let(:new_post) {topic.posts.create!(title: "New Post", body: "New content for a new post.", user: user)}
+          it "triggers create_vote on create" do
+            # not sure how to test for this
+          end
+          it "gives a new post one vote" do
+            expect(new_post.votes.count).to eq 1
+          end
+
+          it "gives a new post 1 point" do
+            expect(new_post.points).to eq 1
+          end
+
+          it "gives a new post a vote by the owner of that post" do
+            expect(new_post.votes.first.user).to eq(user)
+          end
+        end
+
     end
 
 end
