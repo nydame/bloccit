@@ -91,4 +91,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # SendGrid
+  config.action_mailer.default_url_options = {host: 'warm-temple-57423.herokuapp.com'}
 end
