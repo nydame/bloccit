@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+  <h1>New post: <em><%= @post.title %></em></h1>
+  <p>Congratulations! Your new post has been saved and favorited successfully. Each time another user makes a comment on your post, you will be notified by email.</p>
+  <p><%= link_to "View post on site", topic_post_url(@post.topic, @post) %></p>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Congratulations! You have successfully created and favorited post:
+    <%= @post.title %>
+<%= "=" * (@post.title.length + 8) %>
+
+Each time another user comments on this post, you will receive a notification by email.
+You can visit your post online at: <%= topic_post_url(@post.topic, @post) %>

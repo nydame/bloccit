@@ -29,6 +29,12 @@ RSpec.describe Post, type: :model do
         end
     end
 
+    describe "#favorite_by_owner" do
+      it "sets the first favorite on a post by the owner" do
+        expect(post.favorites.first.user).to eq(user)
+      end
+    end
+
     context "voting" do
         before do
             3.times {post.votes.create!(value: 1, user: user)}
