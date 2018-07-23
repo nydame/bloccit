@@ -7,6 +7,8 @@ class Post < ApplicationRecord
 
     default_scope {order('created_at DESC')}
 
+    scope :visible_to, -> (user) {user ? all : joins(:topic).where('topics.public' => true)}
+
     validates :title, length: {minimum: 5}, presence: true
     validates :body, length: {minimum: 25}, presence: true
     validates :topic, presence: true
