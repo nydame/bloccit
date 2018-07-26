@@ -7,7 +7,7 @@ RSpec.describe VotesController, type: :controller do
    let(:other_user) { create(:user) }
    let(:my_topic) { create(:topic) }
    let(:user_post) { create(:post, user: other_user, topic: my_topic) }
-   let(:my_vote) { Vote.create!(value: 1) }
+   let(:my_vote) { Vote.create!(value: 1) } # Why is this here?
 
    context "guest" do
        describe "POST up-vote" do
