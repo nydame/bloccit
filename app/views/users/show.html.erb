@@ -9,7 +9,7 @@
         </div>
       <% end %>
       <div class="media-body">
-        <h2 class="media-heading"><%= @user.name %></h2>
+        <h1 class="media-heading"><%= @user.name %></h1>
         <small>
           <%= pluralize(@user.posts.count, 'post') %>,
           <%= pluralize(@user.comments.count, 'comment') %>
@@ -17,9 +17,20 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <h3>Favorites</h3>
+    <%= render Post.joins(:favorites).where('favorites.user_id' => @user.id) %>
+  </div>
 </div>
-<h2>Posts</h2>
-<%= render @user.posts %>
-<h2>Comments</h2>
-<%= render @user.comments %>
+<% if has_posts %>
+  <h2>Posts</h2>
+  <%= render @user.posts %>
+<% else %>
+  <p><%= @user.name %> has not submitted any posts yet.</p>
+<% end %>
+<% if has_comments %>
+  <h2>Comments</h2>
+  <%= render @user.comments %>
+<% else %>
+  <p><%= @user.name %> has not submitted any comments yet.</p>
+<% end %>
